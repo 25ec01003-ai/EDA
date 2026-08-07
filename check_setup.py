@@ -8,7 +8,7 @@ print("numpy :", np. version )
 
 
 # a one-line smoke test of the plotting back-end
-plt.plot([0, 1, 2, 3], [0, 1, 4, 9], marker="o")
+plt.plot([0, 1, 2, 5], [0, 1, 4, 9], marker="o")
 plt.title("If you can see this window, the setup works")
 plt.xlabel("x"); plt.ylabel("x squared")
 plt.grid(True)
