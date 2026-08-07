@@ -8,8 +8,8 @@ print("numpy :", np. version )
 
 
 # a one-line smoke test of the plotting back-end
-plt.plot([0, 1, 8, 5], [0, 9, 4, 15], marker="s",color="r")
+plt.plot([0, 3, 2, 5], [0, 9, 4, 25], marker="s",color="r")
 plt.title("Diagram")
-plt.xlabel("x"); plt.ylabel("x squared")
+plt.xlabel("x"); plt.ylabel("x^2 squared")
 plt.grid(True)
 plt.show()
