@@ -11,7 +11,7 @@ print("numpy :", np. version )
 plt.plot([0, 3, 2, 5], [0, 9, 4, 25], marker="s",color="r")
 plt.title("Diagram")
 <<<<<<< HEAD
-plt.xlabel("xnumbers"); plt.ylabel("x^^2 squared")
+plt.xlabel("xnumbers"); plt.ylabel("jasanth squared")
 =======
 plt.xlabel("xnumbers"); plt.ylabel("x squared")
 >>>>>>> conflict_w
