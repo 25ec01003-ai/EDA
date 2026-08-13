@@ -1,15 +1,32 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import numpy  as np
 
 df=pd.read_csv("C:\EDA LAB\datasets\MOSFET_ID_VGS.csv")
-fig,ax=plt.subplots(1,2,figsize=(3,3),dpi=300)
+g_11d = np.gradient(df["I_D (0.1V)"],df["V_GS (0.1V)"])
+g_1d = np.gradient(df["I_D (1V)"],df["V_GS (1V)"])
+g_3d = np.gradient(df["I_D (3V)"],df["V_GS (3V)"])
+g_5d = np.gradient(df["I_D (5V)"],df["V_GS (5V)"])
+g_11d = np.nan_to_num(g_11d, nan=0)
+g_1d = np.nan_to_num(g_1d, nan=0)
+g_3d = np.nan_to_num(g_3d, nan=0)
+g_5d = np.nan_to_num(g_5d, nan=0)
+fig,ax=plt.subplots(1,2,figsize=(8,10),dpi=300)
 ax[0].plot(df["V_GS (0.1V)"],df["I_D (0.1V)"],color="r",label = "V_DS = 0.1V",linewidth=1)
 ax[0].plot(df["V_GS (1V)"],df["I_D (1V)"],color="b",label = "V_DS = 1V",linewidth=1)
 ax[0].plot(df["V_GS (3V)"],df["I_D (3V)"],color="y",label = "V_DS = 3V",linewidth=1)
 ax[0].plot(df["V_GS (5V)"],df["I_D (5V)"],color="g",label = "V_DS = 5V",linewidth=1)
 ax[0].set_xlabel("V_GS(V)")
 ax[0].set_ylabel("I_D(mA)")
+ax[1].plot(df["V_GS (0.1V)"],g_11d,color="r",label = "V_DS = 0.1V",linewidth=1,marker="s")
+ax[1].plot(df["V_GS (1V)"],g_1d,color="b",label = "V_DS = 1V",linewidth=1,marker="s")
+ax[1].plot(df["V_GS (3V)"],g_3d,color="y",label = "V_DS = 3V",linewidth=1,marker="s")
+ax[1].plot(df["V_GS (5V)"],g_5d,color="g",label = "V_DS = 5V",linewidth=1,marker="s")
 ax[0].set_title("I_D vs V_GS")
+ax[1].set_xlabel("V_GS(V)")
+ax[1].set_ylabel("g_m(S)")
+ax[1].set_title("g_m vs V_GS")
+ax[1].legend(loc="upper left")
+
 ax[0].legend(loc="upper left")
 plt.show()
